@@ -2,20 +2,6 @@ name: Release (Production version for A2 + GH Pages)
 on: [workflow_dispatch]
 
 jobs:
-  validate-tag:
-    name: Validate tag
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check Tag to Build on
-        run: |
-          TAG="${{ github.ref_name }}"
-          if [[ ! "$TAG" =~ ^v ]]; then
-            echo "The workflow was run from an invalid ref."
-            echo "Expected the ref name to start with a \"v\"."
-            echo "If using the GitHub UI, please select a tag from the \"Use workflow from\" dropdown."
-            exit 1
-          fi
-
   run-tests:
     name: Run Tests
     needs: validate-tag
