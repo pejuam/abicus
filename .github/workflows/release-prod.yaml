@@ -4,7 +4,6 @@ on: [workflow_dispatch]
 jobs:
   run-tests:
     name: Run Tests
-    needs: validate-tag
     runs-on: ubuntu-latest
     steps:
       - name: Check out
